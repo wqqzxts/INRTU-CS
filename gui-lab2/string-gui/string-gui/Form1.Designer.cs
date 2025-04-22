@@ -25,7 +25,7 @@
         private void InitializeComponent() {
             label1 = new Label();
             button1 = new Button();
-            textBox1 = new TextBox();
+            sentenceInput = new TextBox();
             label2 = new Label();
             SuspendLayout();
             // 
@@ -48,13 +48,15 @@
             button1.TabIndex = 2;
             button1.Text = "Форматировать!";
             button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
-            // textBox1
+            // sentenceInput
             // 
-            textBox1.Location = new Point(12, 69);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(744, 23);
-            textBox1.TabIndex = 3;
+            sentenceInput.Font = new Font("JetBrains Mono", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            sentenceInput.Location = new Point(12, 69);
+            sentenceInput.Name = "sentenceInput";
+            sentenceInput.Size = new Size(744, 25);
+            sentenceInput.TabIndex = 3;
             // 
             // label2
             // 
@@ -72,7 +74,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(767, 175);
-            Controls.Add(textBox1);
+            Controls.Add(sentenceInput);
             Controls.Add(button1);
             Controls.Add(label2);
             Controls.Add(label1);
@@ -86,7 +88,7 @@
 
         private Label label1;
         private Button button1;
-        private TextBox textBox1;
+        private TextBox sentenceInput;
         private Label label2;
     }
 }
