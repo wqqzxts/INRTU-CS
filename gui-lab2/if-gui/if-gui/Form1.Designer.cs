@@ -22,23 +22,24 @@
         ///  Required method for Designer support - do not modify
         ///  the contents of this method with the code editor.
         /// </summary>
-        private void InitializeComponent() {
-            textBox1 = new TextBox();
+        private void InitializeComponent()
+        {
+            triangA = new TextBox();
             label1 = new Label();
             label2 = new Label();
-            textBox2 = new TextBox();
+            triangB = new TextBox();
             label3 = new Label();
-            textBox3 = new TextBox();
+            triangC = new TextBox();
             label4 = new Label();
             button1 = new Button();
             SuspendLayout();
             // 
-            // textBox1
+            // triangA
             // 
-            textBox1.Location = new Point(12, 64);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(62, 23);
-            textBox1.TabIndex = 0;
+            triangA.Location = new Point(12, 64);
+            triangA.Name = "triangA";
+            triangA.Size = new Size(62, 23);
+            triangA.TabIndex = 0;
             // 
             // label1
             // 
@@ -62,12 +63,12 @@
             label2.Text = "Является ли  треугольник  ABC  прямоугольным?";
             label2.Click += label1_Click;
             // 
-            // textBox2
+            // triangB
             // 
-            textBox2.Location = new Point(12, 93);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(62, 23);
-            textBox2.TabIndex = 0;
+            triangB.Location = new Point(12, 93);
+            triangB.Name = "triangB";
+            triangB.Size = new Size(62, 23);
+            triangB.TabIndex = 0;
             // 
             // label3
             // 
@@ -80,12 +81,12 @@
             label3.Text = "- Положительное вещественное число \"B\"";
             label3.Click += label1_Click;
             // 
-            // textBox3
+            // triangC
             // 
-            textBox3.Location = new Point(12, 122);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(62, 23);
-            textBox3.TabIndex = 0;
+            triangC.Location = new Point(12, 122);
+            triangC.Name = "triangC";
+            triangC.Size = new Size(62, 23);
+            triangC.TabIndex = 0;
             // 
             // label4
             // 
@@ -95,7 +96,7 @@
             label4.Name = "label4";
             label4.Size = new Size(390, 21);
             label4.TabIndex = 1;
-            label4.Text = "- Положительное вещественное число \"B\"";
+            label4.Text = "- Положительное вещественное число \"C\"";
             label4.Click += label1_Click;
             // 
             // button1
@@ -117,10 +118,10 @@
             Controls.Add(label2);
             Controls.Add(label4);
             Controls.Add(label3);
-            Controls.Add(textBox3);
+            Controls.Add(triangC);
             Controls.Add(label1);
-            Controls.Add(textBox2);
-            Controls.Add(textBox1);
+            Controls.Add(triangB);
+            Controls.Add(triangA);
             Name = "Form1";
             Text = "Form1";
             ResumeLayout(false);
@@ -129,12 +130,12 @@
 
         #endregion
 
-        private TextBox textBox1;
+        private TextBox triangA;
         private Label label1;
         private Label label2;
-        private TextBox textBox2;
+        private TextBox triangB;
         private Label label3;
-        private TextBox textBox3;
+        private TextBox triangC;
         private Label label4;
         private Button button1;
     }
