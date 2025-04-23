@@ -18,22 +18,13 @@ namespace inheritance_lab4 {
             for (var i = 0; i < 20; ++i) {
                 switch (rand.Next() % 3) {
                     case 0:
-                        var newFlower = new Flower();
-                        var randomHeight = 0.05 + (rand.Next() % 3);
-                        newFlower.setHeight(randomHeight);
-                        this.plantsList.Add(newFlower);
+                        this.plantsList.Add(Flower.Generate());
                         break;
                     case 1:
-                        var newTree = new Tree();
-                        randomHeight = 3 + (rand.Next() % 18);
-                        newTree.setHeight(randomHeight);
-                        this.plantsList.Add(newTree);                        
+                        this.plantsList.Add(Bush.Generate());
                         break;
                     case 2:
-                        var newBush = new Bush();
-                        randomHeight = 0.3 + (rand.Next() % 5);
-                        newBush.setHeight(randomHeight);
-                        this.plantsList.Add(newBush);
+                        this.plantsList.Add(Tree.Generate());
                         break;                        
                 }
             }
