@@ -41,7 +41,7 @@ namespace inheritance_lab4 {
             int treesCount = 0;
             int bushesCount = 0;
 
-            foreach(var plant in this.plantsList) {
+            foreach (var plant in this.plantsList) {
                 switch (plant) {
                     case Flower:
                         flowersCount += 1;
@@ -55,9 +55,16 @@ namespace inheritance_lab4 {
                 }
             }
 
-            textInfo.Text = "Цветы\tДеревья\tКустарники";
+            int columnWidth = 10;
+            textInfo.Text = "Цветы".PadRight(columnWidth)
+                            + "Деревья".PadRight(columnWidth)
+                            + "Кустарники";
+
             textInfo.Text += "\n";
-            textInfo.Text += String.Format("{0}\t{1}\t{2}", flowersCount, treesCount, bushesCount);
+
+            textInfo.Text += flowersCount.ToString().PadRight(columnWidth)
+                           + treesCount.ToString().PadRight(columnWidth)
+                           + bushesCount;
         }
     }
 }
