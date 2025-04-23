@@ -33,7 +33,27 @@ namespace inheritance_lab4 {
         }
 
         private void buttonGet_Click(object sender, EventArgs e) {
+            if (this.plantsList.Count == 0) {
+                textOut.Text = "Растения закончились";
+                return;
+            }
 
+            var plant = this.plantsList[0];
+            this.plantsList.RemoveAt(0);
+
+            switch (plant) {
+                case Flower:
+                    textOut.Text = "Цветок";
+                    break;
+                case Tree:
+                    textOut.Text = "Дерево";
+                    break;
+                case Bush:
+                    textOut.Text = "Кустарник";
+                    break;
+            }
+
+            ShowInfo();
         }
 
         private void ShowInfo() {
