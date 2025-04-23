@@ -38,7 +38,7 @@
 
         public static Temperature operator /(Temperature instance, double value) {
             if (Math.Abs(value) < 1e-10)
-                throw new DivideByZeroException("Temperature division by zero.");
+                throw new DivideByZeroException("Деление на 0.");
             return new Temperature(instance.value / value, instance.type);
         }
 
@@ -65,9 +65,47 @@
             var converted = instance2.To(instance1.type);
 
             if (Math.Abs(instance2.value) < 1e-10 || Math.Abs(converted.value) < 1e-10)
-                throw new DivideByZeroException("Temperature division by zero.");
+                throw new DivideByZeroException("Деление на 0.");
 
             return new Temperature(instance1.value / converted.value, instance1.type);
+        }
+
+        public static bool operator ==(Temperature instance1, Temperature instance2) {
+            if (ReferenceEquals(instance1, instance2))
+                return true;
+            if (ReferenceEquals(instance1, null) || ReferenceEquals(instance2, null))
+                return false;
+
+            var converted = instance2.To(instance1.type);
+            return Math.Abs(instance1.value - converted.value) < 1e-10;
+        }
+
+        public static bool operator !=(Temperature instance1, Temperature instance2) {
+            return !(instance1 == instance2);
+        }
+
+        public static bool operator <(Temperature instance1, Temperature instance2) {
+            if (ReferenceEquals(instance1, null) || ReferenceEquals(instance2, null))
+                throw new ArgumentNullException("Нельзя сравнить null объекты");
+
+            var converted = instance2.To(instance1.type);
+            return instance1.value < converted.value;
+        }
+
+        public static bool operator >(Temperature instance1, Temperature instance2) {
+            if (ReferenceEquals(instance1, null) || ReferenceEquals(instance2, null))
+                throw new ArgumentNullException("Нельзя сравнить null объекты");
+
+            var converted = instance2.To(instance1.type);
+            return instance1.value > converted.value;
+        }
+
+        public static bool operator <=(Temperature instance1, Temperature instance2) {
+            return instance1 < instance2 || instance1 == instance2;
+        }
+
+        public static bool operator >=(Temperature instance1, Temperature instance2) {
+            return instance1 > instance2 || instance1 == instance2;
         }
 
         public Temperature To(Type newType) {
