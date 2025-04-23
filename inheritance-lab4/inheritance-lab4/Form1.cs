@@ -18,14 +18,23 @@ namespace inheritance_lab4 {
             for (var i = 0; i < 20; ++i) {
                 switch (rand.Next() % 3) {
                     case 0:
-                        this.plantsList.Add(new Flower());
+                        var newFlower = new Flower();
+                        var randomHeight = 0.05 + (rand.Next() % 3);
+                        newFlower.setHeight(randomHeight);
+                        this.plantsList.Add(newFlower);
                         break;
                     case 1:
-                        this.plantsList.Add(new Tree());
+                        var newTree = new Tree();
+                        randomHeight = 3 + (rand.Next() % 18);
+                        newTree.setHeight(randomHeight);
+                        this.plantsList.Add(newTree);                        
                         break;
                     case 2:
-                        this.plantsList.Add(new Bush());
-                        break;
+                        var newBush = new Bush();
+                        randomHeight = 0.3 + (rand.Next() % 5);
+                        newBush.setHeight(randomHeight);
+                        this.plantsList.Add(newBush);
+                        break;                        
                 }
             }
 
@@ -41,17 +50,7 @@ namespace inheritance_lab4 {
             var plant = this.plantsList[0];
             this.plantsList.RemoveAt(0);
 
-            switch (plant) {
-                case Flower:
-                    textOut.Text = "Цветок";
-                    break;
-                case Tree:
-                    textOut.Text = "Дерево";
-                    break;
-                case Bush:
-                    textOut.Text = "Кустарник";
-                    break;
-            }
+            textOut.Text = plant.GetInfo();
 
             ShowInfo();
         }
