@@ -1,5 +1,5 @@
 ﻿namespace class_lab3 {
-    public enum Type { Ra, K, C, Fa };
+    public enum Type { Ra, K, C, Fa};
     public class Temperature {
         private double value;
         private Type type;
@@ -86,7 +86,7 @@
 
         public static bool operator <(Temperature instance1, Temperature instance2) {
             if (ReferenceEquals(instance1, null) || ReferenceEquals(instance2, null))
-                throw new ArgumentNullException("Нельзя сравнить null объекты");
+                throw new ArgumentNullException("Нельзя сравнить не инициализированные объекты");
 
             var converted = instance2.To(instance1.type);
             return instance1.value < converted.value;
@@ -94,20 +94,11 @@
 
         public static bool operator >(Temperature instance1, Temperature instance2) {
             if (ReferenceEquals(instance1, null) || ReferenceEquals(instance2, null))
-                throw new ArgumentNullException("Нельзя сравнить null объекты");
+                throw new ArgumentNullException("Нельзя сравнить не инициализированные объекты");
 
             var converted = instance2.To(instance1.type);
             return instance1.value > converted.value;
         }
-
-        public static bool operator <=(Temperature instance1, Temperature instance2) {
-            return instance1 < instance2 || instance1 == instance2;
-        }
-
-        public static bool operator >=(Temperature instance1, Temperature instance2) {
-            return instance1 > instance2 || instance1 == instance2;
-        }
-
         public Temperature To(Type newType) {
             if (this.type == newType) {
                 return new Temperature(this.value, newType);

@@ -42,7 +42,7 @@
             textFirst.Font = new Font("JetBrains Mono", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 204);
             textFirst.Location = new Point(90, 80);
             textFirst.Name = "textFirst";
-            textFirst.Size = new Size(209, 25);
+            textFirst.Size = new Size(416, 25);
             textFirst.TabIndex = 0;
             textFirst.TextChanged += textFirst_TextChanged;
             // 
@@ -52,21 +52,20 @@
             label1.Font = new Font("JetBrains Mono SemiBold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 204);
             label1.Location = new Point(12, 9);
             label1.Name = "label1";
-            label1.Size = new Size(353, 25);
+            label1.Size = new Size(573, 25);
             label1.TabIndex = 1;
-            label1.Text = "Калькулятор t:  C,  Fa,  K,  Ra";
+            label1.Text = "Калькулятор и конвертер температур  C,  Fa,  K,  Ra";
             label1.TextAlign = ContentAlignment.TopCenter;
             // 
             // comboOperation
             // 
             comboOperation.Font = new Font("JetBrains Mono", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 204);
             comboOperation.FormattingEnabled = true;
-            comboOperation.Items.AddRange(new object[] { "+", "-", ">/</=" });
+            comboOperation.Items.AddRange(new object[] { "+", "-", "*", ">", "<", "==", "!=" });
             comboOperation.Location = new Point(18, 103);
             comboOperation.Name = "comboOperation";
             comboOperation.Size = new Size(66, 25);
             comboOperation.TabIndex = 2;
-            comboOperation.Text = "+";
             comboOperation.SelectedIndexChanged += onValueChanged;
             // 
             // textSecond
@@ -74,7 +73,7 @@
             textSecond.Font = new Font("JetBrains Mono", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 204);
             textSecond.Location = new Point(90, 126);
             textSecond.Name = "textSecond";
-            textSecond.Size = new Size(209, 25);
+            textSecond.Size = new Size(416, 25);
             textSecond.TabIndex = 0;
             textSecond.TextChanged += textSecond_TextChanged;
             // 
@@ -82,9 +81,9 @@
             // 
             comboTypeFirst.Font = new Font("JetBrains Mono", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 204);
             comboTypeFirst.FormattingEnabled = true;
-            comboTypeFirst.Location = new Point(305, 80);
+            comboTypeFirst.Location = new Point(512, 80);
             comboTypeFirst.Name = "comboTypeFirst";
-            comboTypeFirst.Size = new Size(66, 25);
+            comboTypeFirst.Size = new Size(101, 25);
             comboTypeFirst.TabIndex = 2;
             comboTypeFirst.SelectedIndexChanged += onValueChanged;
             // 
@@ -92,9 +91,9 @@
             // 
             comboTypeSecond.Font = new Font("JetBrains Mono", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 204);
             comboTypeSecond.FormattingEnabled = true;
-            comboTypeSecond.Location = new Point(305, 126);
+            comboTypeSecond.Location = new Point(512, 126);
             comboTypeSecond.Name = "comboTypeSecond";
-            comboTypeSecond.Size = new Size(66, 25);
+            comboTypeSecond.Size = new Size(101, 25);
             comboTypeSecond.TabIndex = 2;
             comboTypeSecond.SelectedIndexChanged += onValueChanged;
             // 
@@ -103,16 +102,16 @@
             textResult.Font = new Font("JetBrains Mono", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 204);
             textResult.Location = new Point(18, 205);
             textResult.Name = "textResult";
-            textResult.Size = new Size(281, 25);
+            textResult.Size = new Size(488, 25);
             textResult.TabIndex = 0;
             // 
             // comboTypeResult
             // 
             comboTypeResult.Font = new Font("JetBrains Mono", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 204);
             comboTypeResult.FormattingEnabled = true;
-            comboTypeResult.Location = new Point(305, 205);
+            comboTypeResult.Location = new Point(512, 205);
             comboTypeResult.Name = "comboTypeResult";
-            comboTypeResult.Size = new Size(66, 25);
+            comboTypeResult.Size = new Size(101, 25);
             comboTypeResult.TabIndex = 2;
             comboTypeResult.SelectedIndexChanged += onValueChanged;
             // 
@@ -147,7 +146,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(625, 247);
             Controls.Add(comboTypeResult);
             Controls.Add(comboTypeSecond);
             Controls.Add(comboTypeFirst);
