@@ -9,15 +9,39 @@
             this.type = type;
         }
 
-        public static Temperature operator +(Temperature instance, double value) {
-            var newValue = instance.value + value;
-            var temperature = new Temperature(newValue, instance.type);
-
-            return temperature;
+        public static Temperature operator +(Temperature instance, double value) {                     
+            return new Temperature(instance.value + value, instance.type); ;
         }
 
         public static Temperature operator +(double value, Temperature instance) {
             return instance + value;
+        }
+
+        public static Temperature operator -(Temperature instance, double value) {
+            return new Temperature(instance.value - value, instance.type);
+            ;
+        }
+
+        public static Temperature operator -(double value, Temperature instance) {
+            return instance - value;
+        }
+
+        public static Temperature operator *(Temperature instance, double value) {
+            return new Temperature(instance.value * value, instance.type);
+            ;
+        }
+
+        public static Temperature operator *(double value, Temperature instance) {
+            return instance * value;
+        }
+
+        public static Temperature operator /(Temperature instance, double value) {
+            return new Temperature(instance.value / value, instance.type);
+            ;
+        }
+
+        public static Temperature operator /(double value, Temperature instance) {
+            return instance / value;
         }
 
         public string Verbose() {

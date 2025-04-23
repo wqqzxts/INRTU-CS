@@ -27,5 +27,26 @@ namespace class_lab3.Tests {
             temperature += 7.6;
             Assert.AreEqual("20 по Кельвину", temperature.Verbose());
         }
+
+        [TestMethod()]
+        public void SubstractValueTest() {
+            var temperature = new Temperature(12.4, Type.C);
+            temperature -= 2.4;
+            Assert.AreEqual("10 по Цельсию", temperature.Verbose());
+        }
+
+        [TestMethod()]
+        public void MultiplyValueTest() {
+            var temperature = new Temperature(12.4, Type.Ra);
+            temperature *= 2;
+            Assert.AreEqual("24.8 по Ранкину", temperature.Verbose());
+        }
+
+        [TestMethod()]
+        public void DivideValueTest() {
+            var temperature = new Temperature(12.4, Type.K);
+            temperature /= 2;
+            Assert.AreEqual("6.2 по Кельвину", temperature.Verbose());
+        }
     }
 }
