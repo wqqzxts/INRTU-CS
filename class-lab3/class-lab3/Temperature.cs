@@ -37,12 +37,37 @@
         }
 
         public static Temperature operator /(Temperature instance, double value) {
+            if (Math.Abs(value) < 1e-10)
+                throw new DivideByZeroException("Temperature division by zero.");
             return new Temperature(instance.value / value, instance.type);
-            ;
         }
 
         public static Temperature operator /(double value, Temperature instance) {
             return instance / value;
+        }
+
+        public static Temperature operator +(Temperature instance1, Temperature instance2) {
+            var converted = instance2.To(instance1.type);
+            return new Temperature(instance1.value + converted.value, instance1.type);
+        }
+
+        public static Temperature operator -(Temperature instance1, Temperature instance2) {
+            var converted = instance2.To(instance1.type);
+            return new Temperature(instance1.value - converted.value, instance1.type);
+        }
+
+        public static Temperature operator *(Temperature instance1, Temperature instance2) {
+            var converted = instance2.To(instance1.type);
+            return new Temperature(instance1.value * converted.value, instance1.type);
+        }
+
+        public static Temperature operator /(Temperature instance1, Temperature instance2) {
+            var converted = instance2.To(instance1.type);
+
+            if (Math.Abs(instance2.value) < 1e-10 || Math.Abs(converted.value) < 1e-10)
+                throw new DivideByZeroException("Temperature division by zero.");
+
+            return new Temperature(instance1.value / converted.value, instance1.type);
         }
 
         public Temperature To(Type newType) {
