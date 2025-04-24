@@ -23,32 +23,45 @@ namespace delegates_lab5 {
 
             g.Clear(Color.GhostWhite);
 
-            foreach (var obj in objects) {
+            foreach (var obj in objects.ToList()) {
                 if (obj != player && player.OverLaps(obj, g)) {
-                    txtLog.Text = $"[{DateTime.Now:HH:mm:ss:ff}] Игрок пересекся с {obj}\n" + txtLog.Text;
+                    txtLog.Text = $"[{DateTime.Now:HH:mm:ss:ff}] Игрок пересекся с маркером\n" + txtLog.Text;
+
+                    if (obj == marker) {
+                        objects.Remove(marker);
+                        marker = null;
+                    }
                 }
+
                 g.Transform = obj.GetTransform();
                 obj.Render(g);
             }
         }
 
         private void timer1_Tick(object sender, EventArgs e) {
-            float dx = marker.X - player.X;
-            float dy = marker.Y - player.Y;
+            if (marker != null) {
+                float dx = marker.X - player.X;
+                float dy = marker.Y - player.Y;
 
-            float length = MathF.Sqrt(dx * dx + dy * dy);
-            dx /= length;
-            dy /= length;
+                float length = MathF.Sqrt(dx * dx + dy * dy);
+                dx /= length;
+                dy /= length;
 
-            player.X += dx * 2;
-            player.Y += dy * 2;
-
+                player.X += dx * 2;
+                player.Y += dy * 2;                
+            }
+            
             pbMain.Invalidate();
         }
 
         private void pbMain_MouseClick(object sender, MouseEventArgs e) {
+            if (marker == null) {
+                marker = new Marker(0, 0, 0);
+                objects.Add(marker);
+            }
+
             marker.X = e.X;
             marker.Y = e.Y;
-        } 
+        }
     }
 }
