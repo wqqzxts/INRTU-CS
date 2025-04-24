@@ -28,5 +28,21 @@ namespace delegates_lab5.Objects {
         public virtual void Render(Graphics g) {
 
         }
+
+        public virtual GraphicsPath GetGraphicsPath() {
+            return new GraphicsPath();
+        }
+
+        public virtual bool OverLaps(BaseObject obj, Graphics g) {
+            var path1 = this.GetGraphicsPath();
+            var path2 = obj.GetGraphicsPath();
+
+            path1.Transform(this.GetTransform());
+            path2.Transform(obj.GetTransform());
+
+            var region = new Region(path1);
+            region.Intersect(path2);
+            return !region.IsEmpty(g);
+        }
     }
 }

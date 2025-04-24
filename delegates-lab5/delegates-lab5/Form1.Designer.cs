@@ -23,18 +23,20 @@
         ///  the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            richTextBox1 = new RichTextBox();
+            components = new System.ComponentModel.Container();
+            txtLog = new RichTextBox();
             pbMain = new PictureBox();
+            timer1 = new System.Windows.Forms.Timer(components);
             ((System.ComponentModel.ISupportInitialize)pbMain).BeginInit();
             SuspendLayout();
             // 
-            // richTextBox1
+            // txtLog
             // 
-            richTextBox1.Location = new Point(645, 12);
-            richTextBox1.Name = "richTextBox1";
-            richTextBox1.Size = new Size(143, 426);
-            richTextBox1.TabIndex = 0;
-            richTextBox1.Text = "";
+            txtLog.Location = new Point(645, 12);
+            txtLog.Name = "txtLog";
+            txtLog.Size = new Size(143, 426);
+            txtLog.TabIndex = 0;
+            txtLog.Text = "";
             // 
             // pbMain
             // 
@@ -44,6 +46,13 @@
             pbMain.TabIndex = 1;
             pbMain.TabStop = false;
             pbMain.Paint += pbMain_Paint;
+            pbMain.MouseClick += pbMain_MouseClick;
+            // 
+            // timer1
+            // 
+            timer1.Enabled = true;
+            timer1.Interval = 30;
+            timer1.Tick += timer1_Tick;
             // 
             // Form1
             // 
@@ -51,7 +60,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
             Controls.Add(pbMain);
-            Controls.Add(richTextBox1);
+            Controls.Add(txtLog);
             Name = "Form1";
             Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)pbMain).EndInit();
@@ -60,7 +69,8 @@
 
         #endregion
 
-        private RichTextBox richTextBox1;
+        private RichTextBox txtLog;
         private PictureBox pbMain;
+        private System.Windows.Forms.Timer timer1;
     }
 }

@@ -24,9 +24,31 @@ namespace delegates_lab5 {
             g.Clear(Color.GhostWhite);
 
             foreach (var obj in objects) {
+                if (obj != player && player.OverLaps(obj, g)) {
+                    txtLog.Text = $"[{DateTime.Now:HH:mm:ss:ff}] Игрок пересекся с {obj}\n" + txtLog.Text;
+                }
                 g.Transform = obj.GetTransform();
                 obj.Render(g);
             }
         }
+
+        private void timer1_Tick(object sender, EventArgs e) {
+            float dx = marker.X - player.X;
+            float dy = marker.Y - player.Y;
+
+            float length = MathF.Sqrt(dx * dx + dy * dy);
+            dx /= length;
+            dy /= length;
+
+            player.X += dx * 2;
+            player.Y += dy * 2;
+
+            pbMain.Invalidate();
+        }
+
+        private void pbMain_MouseClick(object sender, MouseEventArgs e) {
+            marker.X = e.X;
+            marker.Y = e.Y;
+        } 
     }
 }
