@@ -34,7 +34,7 @@
             // 
             txtLog.Location = new Point(645, 12);
             txtLog.Name = "txtLog";
-            txtLog.Size = new Size(143, 426);
+            txtLog.Size = new Size(347, 426);
             txtLog.TabIndex = 0;
             txtLog.Text = "";
             // 
@@ -58,7 +58,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(1004, 450);
             Controls.Add(pbMain);
             Controls.Add(txtLog);
             Name = "Form1";

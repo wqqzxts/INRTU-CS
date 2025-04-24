@@ -11,6 +11,8 @@ namespace delegates_lab5.Objects {
         public float Y;
         public float Angle;
 
+        public Action<BaseObject, BaseObject> OnOverLap;
+
         public BaseObject(float x, float y, float angle) {
             X = x;
             Y = y;
@@ -33,7 +35,7 @@ namespace delegates_lab5.Objects {
             return new GraphicsPath();
         }
 
-        public virtual bool OverLaps(BaseObject obj, Graphics g) {
+        public virtual bool Overlaps(BaseObject obj, Graphics g) {
             var path1 = this.GetGraphicsPath();
             var path2 = obj.GetGraphicsPath();
 
@@ -43,6 +45,12 @@ namespace delegates_lab5.Objects {
             var region = new Region(path1);
             region.Intersect(path2);
             return !region.IsEmpty(g);
+        }
+
+        public virtual void Overlap(BaseObject obj) {
+            if (this.OnOverLap != null) {
+                this.OnOverLap(this, obj);
+            }
         }
     }
 }

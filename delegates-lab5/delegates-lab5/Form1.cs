@@ -9,6 +9,11 @@ namespace delegates_lab5 {
             InitializeComponent();
 
             player = new Player(pbMain.Width / 2, pbMain.Height / 2, 0);
+
+            player.OnOverLap += (p, obj) => {
+                txtLog.Text = $"[{DateTime.Now:HH:mm:ss}] Игрок пересекся с {obj}\n" + txtLog.Text;
+            };
+
             marker = new Marker(pbMain.Width / 2 + 50, pbMain.Height / 2 + 50, 0);
 
             objects.Add(player);
@@ -24,8 +29,9 @@ namespace delegates_lab5 {
             g.Clear(Color.GhostWhite);
 
             foreach (var obj in objects.ToList()) {
-                if (obj != player && player.OverLaps(obj, g)) {
-                    txtLog.Text = $"[{DateTime.Now:HH:mm:ss:ff}] Игрок пересекся с маркером\n" + txtLog.Text;
+                if (obj != player && player.Overlaps(obj, g)) {
+                    player.Overlap(obj);
+                    obj.Overlap(player);
 
                     if (obj == marker) {
                         objects.Remove(marker);
@@ -33,6 +39,11 @@ namespace delegates_lab5 {
                     }
                 }
 
+                g.Transform = obj.GetTransform();
+                obj.Render(g);
+            }
+
+            foreach (var obj in objects) {
                 g.Transform = obj.GetTransform();
                 obj.Render(g);
             }
