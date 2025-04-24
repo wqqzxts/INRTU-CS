@@ -2,11 +2,20 @@ using delegates_lab5.Objects;
 
 namespace delegates_lab5 {
     public partial class Form1 : Form {
-        MyRectangle myRect;
+        List<BaseObject> objects = new();
+        Player player;
+        Marker marker;
         public Form1() {
             InitializeComponent();
 
-            myRect = new MyRectangle(0, 0, 0);
+            player = new Player(pbMain.Width / 2, pbMain.Height / 2, 0);
+            marker = new Marker(pbMain.Width / 2 + 50, pbMain.Height / 2 + 50, 0);
+
+            objects.Add(player);
+            objects.Add(marker);
+
+            objects.Add(new MyRectangle(50, 50, 0));
+            objects.Add(new MyRectangle(100, 100, 0));
         }
 
         private void pbMain_Paint(object sender, PaintEventArgs e) {
@@ -14,8 +23,10 @@ namespace delegates_lab5 {
 
             g.Clear(Color.GhostWhite);
 
-            g.Transform = myRect.GetTransform();
-            myRect.Render(g);
+            foreach (var obj in objects) {
+                g.Transform = obj.GetTransform();
+                obj.Render(g);
+            }
         }
     }
 }
