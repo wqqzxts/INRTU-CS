@@ -28,6 +28,8 @@ namespace delegates_lab5 {
 
             g.Clear(Color.GhostWhite);
 
+            updatePlayer();
+
             foreach (var obj in objects.ToList()) {
                 if (obj != player && player.Overlaps(obj, g)) {
                     player.Overlap(obj);
@@ -49,19 +51,7 @@ namespace delegates_lab5 {
             }
         }
 
-        private void timer1_Tick(object sender, EventArgs e) {
-            if (marker != null) {
-                float dx = marker.X - player.X;
-                float dy = marker.Y - player.Y;
-
-                float length = MathF.Sqrt(dx * dx + dy * dy);
-                dx /= length;
-                dy /= length;
-
-                player.X += dx * 2;
-                player.Y += dy * 2;                
-            }
-            
+        private void timer1_Tick(object sender, EventArgs e) {            
             pbMain.Invalidate();
         }
 
@@ -73,6 +63,26 @@ namespace delegates_lab5 {
 
             marker.X = e.X;
             marker.Y = e.Y;
+        }
+
+        private void updatePlayer() {
+            if (marker != null) {
+                float dx = marker.X - player.X;
+                float dy = marker.Y - player.Y;
+                float length = MathF.Sqrt(dx * dx + dy * dy);
+                dx /= length;
+                dy /= length;
+
+                player.vX += dx * 0.5f;
+                player.vY += dy * 0.5f;
+                player.Angle = 90 - MathF.Atan2(player.vX, player.vY) * 180 / MathF.PI;
+            }
+
+            player.vX += -player.vX * 0.1f;
+            player.vY += -player.vY * 0.1f;
+
+            player.X += player.vX;
+            player.Y += player.vY;
         }
     }
 }

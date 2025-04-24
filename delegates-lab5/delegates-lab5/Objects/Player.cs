@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace delegates_lab5.Objects {
     class Player : BaseObject {
+        public Action<Marker> OnMarkerOverlap;
+        public float vX, vY;
+
         public Player(float x, float y, float angle) : base(x, y, angle) {
         }
 
