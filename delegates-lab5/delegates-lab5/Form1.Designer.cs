@@ -27,6 +27,7 @@
             txtLog = new RichTextBox();
             pbMain = new PictureBox();
             timer1 = new System.Windows.Forms.Timer(components);
+            scoreLabel = new Label();
             ((System.ComponentModel.ISupportInitialize)pbMain).BeginInit();
             SuspendLayout();
             // 
@@ -54,17 +55,29 @@
             timer1.Interval = 15;
             timer1.Tick += timer1_Tick;
             // 
+            // scoreLabel
+            // 
+            scoreLabel.AutoSize = true;
+            scoreLabel.Font = new Font("JetBrains Mono", 17.9999981F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            scoreLabel.Location = new Point(602, 21);
+            scoreLabel.Name = "scoreLabel";
+            scoreLabel.Size = new Size(28, 31);
+            scoreLabel.TabIndex = 2;
+            scoreLabel.Text = "0";
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1004, 450);
+            Controls.Add(scoreLabel);
             Controls.Add(pbMain);
             Controls.Add(txtLog);
             Name = "Form1";
             Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)pbMain).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -72,5 +85,6 @@
         private RichTextBox txtLog;
         private PictureBox pbMain;
         private System.Windows.Forms.Timer timer1;
+        private Label scoreLabel;
     }
 }
