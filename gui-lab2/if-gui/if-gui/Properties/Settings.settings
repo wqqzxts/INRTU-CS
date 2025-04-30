@@ -2,13 +2,13 @@
 <SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="if_gui.Properties" GeneratedClassName="Settings">
   <Profiles />
   <Settings>
-    <Setting Name="cacheTriangA" Type="System.Int32" Scope="User">
+    <Setting Name="cacheTriangA" Type="System.Double" Scope="User">
       <Value Profile="(Default)">3</Value>
     </Setting>
-    <Setting Name="cacheTriangB" Type="System.Int32" Scope="User">
+    <Setting Name="cacheTriangB" Type="System.Double" Scope="User">
       <Value Profile="(Default)">4</Value>
     </Setting>
-    <Setting Name="cacheTriangC" Type="System.Int32" Scope="User">
+    <Setting Name="cacheTriangC" Type="System.Double" Scope="User">
       <Value Profile="(Default)">5</Value>
     </Setting>
   </Settings>

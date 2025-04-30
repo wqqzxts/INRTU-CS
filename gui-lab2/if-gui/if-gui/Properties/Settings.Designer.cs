@@ -26,9 +26,9 @@ namespace if_gui.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("3")]
-        public int cacheTriangA {
+        public double cacheTriangA {
             get {
-                return ((int)(this["cacheTriangA"]));
+                return ((double)(this["cacheTriangA"]));
             }
             set {
                 this["cacheTriangA"] = value;
@@ -38,9 +38,9 @@ namespace if_gui.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("4")]
-        public int cacheTriangB {
+        public double cacheTriangB {
             get {
-                return ((int)(this["cacheTriangB"]));
+                return ((double)(this["cacheTriangB"]));
             }
             set {
                 this["cacheTriangB"] = value;
@@ -50,9 +50,9 @@ namespace if_gui.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("5")]
-        public int cacheTriangC {
+        public double cacheTriangC {
             get {
-                return ((int)(this["cacheTriangC"]));
+                return ((double)(this["cacheTriangC"]));
             }
             set {
                 this["cacheTriangC"] = value;

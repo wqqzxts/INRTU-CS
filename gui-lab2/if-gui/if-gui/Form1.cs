@@ -13,12 +13,12 @@ namespace if_gui {
         }
 
         private void button1_Click(object sender, EventArgs e) {
-            int a, b, c;
+            double a, b, c;
 
             try {
-                a = int.Parse(this.triangA.Text);
-                b = int.Parse(this.triangB.Text);
-                c = int.Parse(this.triangC.Text);
+                a = double.Parse(this.triangA.Text);
+                b = double.Parse(this.triangB.Text);
+                c = double.Parse(this.triangC.Text);
             } catch(FormatException) {
                 return;
             }
