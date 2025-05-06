@@ -3,6 +3,7 @@ namespace if_gui {
         // Даны вещественные положительные числа a, b, c. Если существует треугольник со сторонами a, b, c, то определить, является ли он прямоугольным.
         public Form1() {
             InitializeComponent();
+            this.Text = "Lab 2"
 
             triangA.Text = Properties.Settings.Default.cacheTriangA.ToString();
             triangB.Text = Properties.Settings.Default.cacheTriangB.ToString();

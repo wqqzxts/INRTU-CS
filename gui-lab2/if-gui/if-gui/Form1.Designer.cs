@@ -22,8 +22,7 @@
         ///  Required method for Designer support - do not modify
         ///  the contents of this method with the code editor.
         /// </summary>
-        private void InitializeComponent()
-        {
+        private void InitializeComponent() {
             triangA = new TextBox();
             label1 = new Label();
             label2 = new Label();
@@ -103,7 +102,7 @@
             // 
             button1.Location = new Point(12, 151);
             button1.Name = "button1";
-            button1.Size = new Size(458, 59);
+            button1.Size = new Size(171, 59);
             button1.TabIndex = 2;
             button1.Text = "Выяснить!";
             button1.UseVisualStyleBackColor = true;
