@@ -1,5 +1,6 @@
 namespace if_gui {
     public partial class Form1 : Form {
+        // Даны вещественные положительные числа a, b, c. Если существует треугольник со сторонами a, b, c, то определить, является ли он прямоугольным.
         public Form1() {
             InitializeComponent();
 

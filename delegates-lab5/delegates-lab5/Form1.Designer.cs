@@ -46,6 +46,7 @@
             pbMain.Size = new Size(627, 426);
             pbMain.TabIndex = 1;
             pbMain.TabStop = false;
+            pbMain.Click += pbMain_Click;
             pbMain.Paint += pbMain_Paint;
             pbMain.MouseClick += pbMain_MouseClick;
             // 

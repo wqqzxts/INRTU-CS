@@ -104,5 +104,9 @@ namespace delegates_lab5 {
             player.X += player.vX;
             player.Y += player.vY;
         }
+
+        private void pbMain_Click(object sender, EventArgs e) {
+
+        }
     }
 }

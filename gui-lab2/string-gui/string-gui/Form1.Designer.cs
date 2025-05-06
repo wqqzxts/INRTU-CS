@@ -42,9 +42,9 @@
             // button1
             // 
             button1.Font = new Font("JetBrains Mono", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            button1.Location = new Point(12, 98);
+            button1.Location = new Point(593, 100);
             button1.Name = "button1";
-            button1.Size = new Size(744, 69);
+            button1.Size = new Size(162, 69);
             button1.TabIndex = 2;
             button1.Text = "Форматировать!";
             button1.UseVisualStyleBackColor = true;
@@ -73,13 +73,14 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(767, 175);
+            ClientSize = new Size(782, 201);
             Controls.Add(sentenceInput);
             Controls.Add(button1);
             Controls.Add(label2);
             Controls.Add(label1);
             Name = "Form1";
             Text = "Form1";
+            Load += Form1_Load;
             ResumeLayout(false);
             PerformLayout();
         }

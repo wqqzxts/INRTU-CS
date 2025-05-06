@@ -2,14 +2,13 @@ using System.Text;
 
 namespace string_gui {
     public partial class Form1 : Form {
+        // ¬ тексте удалить каждое слово с четным числом символов, продублировать каждое слово с нечетным
+        // числом символов, заменив все вхождени€ букв СdТ на букву СtТ .
         public Form1() {
             InitializeComponent();
+            this.Text = "Lab2";
 
             sentenceInput.Text = Properties.Settings.Default.cacheSentenceInput.ToString();
-        }
-
-        private void label2_Click(object sender, EventArgs e) {
-
         }
 
         private void button1_Click(object sender, EventArgs e) {
@@ -17,7 +16,7 @@ namespace string_gui {
 
             try {
                 input = this.sentenceInput.Text;
-            } catch(FormatException) {
+            } catch (FormatException) {
                 return;
             }
 
@@ -25,6 +24,10 @@ namespace string_gui {
             Properties.Settings.Default.Save();
 
             MessageBox.Show(Logic.processText(input));
+        }
+
+        private void Form1_Load(object sender, EventArgs e) {
+
         }
     }
 
