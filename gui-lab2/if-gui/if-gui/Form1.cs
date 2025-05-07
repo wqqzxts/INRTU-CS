@@ -1,17 +1,14 @@
 namespace if_gui {
     public partial class Form1 : Form {
-        // Даны вещественные положительные числа a, b, c. Если существует треугольник со сторонами a, b, c, то определить, является ли он прямоугольным.
+        // Даны вещественные положительные числа a, b, c. Если существует треугольник со сторонами a, b, c,
+        // то определить, является ли он прямоугольным.
         public Form1() {
             InitializeComponent();
-            this.Text = "Lab 2"
+            this.Text = "Lab 2";
 
             triangA.Text = Properties.Settings.Default.cacheTriangA.ToString();
             triangB.Text = Properties.Settings.Default.cacheTriangB.ToString();
             triangC.Text = Properties.Settings.Default.cacheTriangC.ToString();
-        }
-
-        private void label1_Click(object sender, EventArgs e) {
-
         }
 
         private void button1_Click(object sender, EventArgs e) {
@@ -41,7 +38,9 @@ namespace if_gui {
             bool isRight = false;
             if (a + b > c && a + c > b && b + c > a) {
                 isTriangle = true;
-                if (Math.Abs(a * a + b * b - c * c) < Accuracy || Math.Abs(a * a + c * c - b * b) < Accuracy || Math.Abs(b * b + c * c - a * a) < Accuracy) {
+                if (Math.Abs(a * a + b * b - c * c) < Accuracy || 
+                    Math.Abs(a * a + c * c - b * b) < Accuracy || 
+                    Math.Abs(b * b + c * c - a * a) < Accuracy) {
                     isRight = true;
                 }
             }

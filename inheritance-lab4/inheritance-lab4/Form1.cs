@@ -3,12 +3,9 @@ namespace inheritance_lab4 {
         List<Plant> plantsList = new List<Plant>();
         public Form1() {
             InitializeComponent();
+            this.Text = "Lab4";
 
             ShowInfo();
-        }
-
-        private void Form1_Load(object sender, EventArgs e) {
-
         }
 
         private void buttonRefill_Click(object sender, EventArgs e) {

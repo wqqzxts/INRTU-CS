@@ -79,8 +79,7 @@
             Controls.Add(buttonGet);
             Controls.Add(buttonRefill);
             Name = "Form1";
-            Text = "Form1";
-            Load += Form1_Load;
+            Text = "Form1";            
             ResumeLayout(false);
         }
 

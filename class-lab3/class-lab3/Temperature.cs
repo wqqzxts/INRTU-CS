@@ -1,6 +1,17 @@
 ﻿namespace class_lab3 {
     public enum Type { Ra, K, C, Fa};
     public class Temperature {
+
+
+    //Температура, задаваемая в виде пары(значение, тип), допустимые типы:
+    //градус Цельсия, градус Фаренгейта, градус Ранкина, Кельвины
+    //сложение
+    //вычитание
+    //умножение на число
+    //сравнение
+    //вывод значения в любом типе
+
+
         private double value;
         private Type type;
 
@@ -9,9 +20,9 @@
             this.type = type;
         }
 
+        // числа
         public static Temperature operator +(Temperature instance, double value) {
-            return new Temperature(instance.value + value, instance.type);
-            ;
+            return new Temperature(instance.value + value, instance.type);            
         }
 
         public static Temperature operator +(double value, Temperature instance) {
@@ -19,17 +30,15 @@
         }
 
         public static Temperature operator -(Temperature instance, double value) {
-            return new Temperature(instance.value - value, instance.type);
-            ;
+            return new Temperature(instance.value - value, instance.type);            
         }
 
         public static Temperature operator -(double value, Temperature instance) {
             return instance - value;
         }
-
+        
         public static Temperature operator *(Temperature instance, double value) {
-            return new Temperature(instance.value * value, instance.type);
-            ;
+            return new Temperature(instance.value * value, instance.type);            
         }
 
         public static Temperature operator *(double value, Temperature instance) {
@@ -46,6 +55,7 @@
             return instance / value;
         }
 
+        // температуры
         public static Temperature operator +(Temperature instance1, Temperature instance2) {
             var converted = instance2.To(instance1.type);
             return new Temperature(instance1.value + converted.value, instance1.type);
@@ -71,10 +81,8 @@
         }
 
         public static bool operator ==(Temperature instance1, Temperature instance2) {
-            if (ReferenceEquals(instance1, instance2))
-                return true;
             if (ReferenceEquals(instance1, null) || ReferenceEquals(instance2, null))
-                return false;
+                throw new ArgumentNullException("Нельзя сравнить не инициализированные объекты");
 
             var converted = instance2.To(instance1.type);
             return Math.Abs(instance1.value - converted.value) < 1e-10;

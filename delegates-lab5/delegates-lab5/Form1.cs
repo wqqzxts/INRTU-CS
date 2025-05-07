@@ -11,6 +11,7 @@ namespace delegates_lab5 {
         ScorePoint point2;
         public Form1() {
             InitializeComponent();
+            this.Text = "Lab5";
 
             player = new Player(pbMain.Width / 2, pbMain.Height / 2, 0);
 
@@ -36,6 +37,17 @@ namespace delegates_lab5 {
 
             updatePlayer();
 
+            if (point1.IsExpired()) {
+                objects.Remove(point1);
+                point1 = createRandomScorePoint();
+                objects.Add(point1);
+            }
+            if (point2.IsExpired()) {
+                objects.Remove(point2);
+                point2 = createRandomScorePoint();
+                objects.Add(point2);
+            }
+
             foreach (var obj in objects.ToList()) {
                 if (obj != player && player.Overlaps(obj, g)) {
                     player.Overlap(obj);
@@ -46,26 +58,20 @@ namespace delegates_lab5 {
                         marker = null;
                     }
 
-                    if (obj == point1) {
+                    if (obj is ScorePoint point) {
                         scoreCount++;
                         scoreLabel.Text = scoreCount.ToString();
-                        objects.Remove(point1);
-                        point1 = new ScorePoint((rand.Next() % pbMain.Width), (rand.Next() % pbMain.Height), 0);
-                        objects.Add(point1);
-                    } else if (obj == point2) {
-                        scoreCount++;
-                        scoreLabel.Text = scoreCount.ToString();
-                        objects.Remove(point2);
-                        point2 = new ScorePoint((rand.Next() % pbMain.Width), (rand.Next() % pbMain.Height), 0);
-                        objects.Add(point2);
+                        objects.Remove(obj);
+                        if (obj == point1) {
+                            point1 = createRandomScorePoint();
+                            objects.Add(point1);
+                        } else if (obj == point2) {
+                            point2 = createRandomScorePoint();
+                            objects.Add(point2);
+                        }
                     }
                 }
 
-                g.Transform = obj.GetTransform();
-                obj.Render(g);
-            }
-
-            foreach (var obj in objects) {
                 g.Transform = obj.GetTransform();
                 obj.Render(g);
             }
@@ -105,8 +111,8 @@ namespace delegates_lab5 {
             player.Y += player.vY;
         }
 
-        private void pbMain_Click(object sender, EventArgs e) {
-
+        private ScorePoint createRandomScorePoint() {
+            return new ScorePoint(rand.Next(pbMain.Width), rand.Next(pbMain.Height), 0);
         }
     }
 }

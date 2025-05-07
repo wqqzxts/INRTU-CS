@@ -2,6 +2,7 @@ namespace class_lab3 {
     public partial class Form1 : Form {
         public Form1() {
             InitializeComponent();
+            this.Text = "Lab3";
 
             var measureItems = new string[] { "C", "Fa", "K", "Ra", };
             var measureItemsWithNumber = new string[] { "C", "Fa", "K", "Ra", "Number" };
