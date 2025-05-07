@@ -51,7 +51,6 @@ namespace delegates_lab5 {
             foreach (var obj in objects.ToList()) {
                 if (obj != player && player.Overlaps(obj, g)) {
                     player.Overlap(obj);
-                    obj.Overlap(player);
 
                     if (obj == marker) {
                         objects.Remove(marker);
