@@ -23,12 +23,41 @@
         ///  the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            this.components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "Form1";
+            components = new System.ComponentModel.Container();
+            timer1 = new System.Windows.Forms.Timer(components);
+            picDisplay = new PictureBox();
+            ((System.ComponentModel.ISupportInitialize)picDisplay).BeginInit();
+            SuspendLayout();
+            // 
+            // timer1
+            // 
+            timer1.Enabled = true;
+            timer1.Interval = 40;
+            timer1.Tick += timer1_Tick;
+            // 
+            // picDisplay
+            // 
+            picDisplay.Location = new Point(12, 12);
+            picDisplay.Name = "picDisplay";
+            picDisplay.Size = new Size(776, 426);
+            picDisplay.TabIndex = 0;
+            picDisplay.TabStop = false;            
+            // 
+            // Form1
+            // 
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(800, 450);
+            Controls.Add(picDisplay);
+            Name = "Form1";
+            Text = "Form1";
+            ((System.ComponentModel.ISupportInitialize)picDisplay).EndInit();
+            ResumeLayout(false);
         }
 
         #endregion
+
+        private System.Windows.Forms.Timer timer1;
+        private PictureBox picDisplay;
     }
 }
