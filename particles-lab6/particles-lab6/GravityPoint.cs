@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace particles_lab6 {
     public class GravityPoint : IImpactPoint {
-        public int power = 100;
+        public new int power;
 
-        public override void impactParticle(Particle particle) {
+        public override void ImpactParticle(Particle particle) {
             float gX = X - particle.X;
             float gY = Y - particle.Y;
             float r2 = (float)Math.Max(100, gX * gX + gY * gY);

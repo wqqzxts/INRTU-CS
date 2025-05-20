@@ -26,12 +26,43 @@ namespace particles_lab6 {
             life = 20 + rand.Next(100);
         }
 
-        public void Draw(Graphics g) {
+        public virtual void Draw(Graphics g) {
             float k = Math.Min(1f, life / 100);
 
             int alpha = (int)(k * 255);
 
             var color = Color.FromArgb(alpha, Color.White);
+            var b = new SolidBrush(color);
+
+            g.FillEllipse(b, X - radius, Y - radius, radius * 2, radius * 2);
+
+            b.Dispose();
+        }
+    }
+
+    public class ColorfulParticle : Particle {
+        public Color fromColor;
+        public Color toColor;
+
+        public static Color MixColor(Color color1, Color color2, float k) {
+            k = Math.Max(0, Math.Min(1, k));
+
+            return Color.FromArgb(
+                ClampToByte(color2.A * k + color1.A * (1 - k)),
+                ClampToByte(color2.R * k + color1.R * (1 - k)),
+                ClampToByte(color2.G * k + color1.G * (1 - k)),
+                ClampToByte(color2.B * k + color1.B * (1 - k))
+            );
+        }
+
+        private static int ClampToByte(float value) {
+            return (int)Math.Max(0, Math.Min(255, value));
+        }
+
+        public override void Draw(Graphics g) {
+            float k = Math.Min(1f, life / 100);
+
+            var color = MixColor(toColor, fromColor, k);
             var b = new SolidBrush(color);
 
             g.FillEllipse(b, X - radius, Y - radius, radius * 2, radius * 2);

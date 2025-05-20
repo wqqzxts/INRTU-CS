@@ -8,8 +8,8 @@ namespace particles_lab6 {
     public class TopEmitter : Emitter {
         public int width;
 
-        public override void resetParticle(Particle particle, PictureBox picDisplay) {
-            base.resetParticle(particle, picDisplay);
+        public override void ResetParticle(Particle particle, PictureBox picDisplay) {
+            base.ResetParticle(particle, picDisplay);
 
             particle.X = Particle.rand.Next(width);
             particle.Y = 0;
