@@ -40,27 +40,31 @@ namespace particles_lab6 {
                 particles.Add(particle);
             }
 
-            for (var i = 0; i < 10; ++i) {
-                if (particles.Count < particlesCount) {
-                    var particle = CreateParticle();
-                    ResetParticle(particle, picDisplay);
-                    particles.Add(particle);
-                } else {
-                    break;
-                }
+            int particlesNeeded = particlesCount - particles.Count;
+            int particlesToAdd = Math.Min(particlesNeeded, 10);
+            for (var i = 0; i < particlesToAdd; ++i) {
+                var particle = CreateParticle();
+                ResetParticle(particle, picDisplay);
+                particles.Add(particle);
             }
 
-            foreach (var particle in particles) {
+            for (int i = particles.Count - 1; i >= 0; i--) {
+                var particle = particles[i];
                 particle.life -= 1;
+
                 if (particle.life <= 0) {
+                    particles.RemoveAt(i);
+
                     if (particlesToCreate > 0) {
                         particlesToCreate -= 1;
-                        ResetParticle(particle, picDisplay);
-                    }                    
+                        var newParticle = CreateParticle();
+                        ResetParticle(newParticle, picDisplay);
+                        particles.Add(newParticle);
+                    }
                 } else {
                     foreach (var point in impactPoints) {
                         point.ImpactParticle(particle);
-                    }                   
+                    }
 
                     particle.speedX += gravitationX;
                     particle.speedY += gravitationY;
