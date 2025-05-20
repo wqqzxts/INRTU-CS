@@ -32,7 +32,7 @@
             // timer1
             // 
             timer1.Enabled = true;
-            timer1.Interval = 40;
+            timer1.Interval = 20;
             timer1.Tick += timer1_Tick;
             // 
             // picDisplay
@@ -41,7 +41,7 @@
             picDisplay.Name = "picDisplay";
             picDisplay.Size = new Size(776, 426);
             picDisplay.TabIndex = 0;
-            picDisplay.TabStop = false;            
+            picDisplay.TabStop = false;
             // 
             // Form1
             // 
