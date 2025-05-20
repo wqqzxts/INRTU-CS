@@ -32,6 +32,8 @@ namespace particles_lab6 {
 
         public void UpdateState(PictureBox picDisplay) {
             int particlesToCreate = particlesPerTick;
+            int particlesNeeded = particlesCount - particles.Count;
+            int particlesToAdd = Math.Min(particlesNeeded, 10);
 
             while (particlesToCreate >= 1) {
                 particlesToCreate -= 1;
@@ -40,8 +42,6 @@ namespace particles_lab6 {
                 particles.Add(particle);
             }
 
-            int particlesNeeded = particlesCount - particles.Count;
-            int particlesToAdd = Math.Min(particlesNeeded, 10);
             for (var i = 0; i < particlesToAdd; ++i) {
                 var particle = CreateParticle();
                 ResetParticle(particle, picDisplay);
@@ -54,13 +54,6 @@ namespace particles_lab6 {
 
                 if (particle.life <= 0) {
                     particles.RemoveAt(i);
-
-                    if (particlesToCreate > 0) {
-                        particlesToCreate -= 1;
-                        var newParticle = CreateParticle();
-                        ResetParticle(newParticle, picDisplay);
-                        particles.Add(newParticle);
-                    }
                 } else {
                     foreach (var point in impactPoints) {
                         point.ImpactParticle(particle);
