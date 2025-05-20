@@ -33,7 +33,7 @@ namespace particles_lab6 {
             emitter.UpdateState(picDisplay);
 
             using (var g = Graphics.FromImage(picDisplay.Image)) {
-                g.Clear(Color.Black);
+                g.Clear(Color.DarkGray);
                 emitter.Render(g);
             }
 
